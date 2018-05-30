@@ -1,0 +1,15 @@
+<ion-card>
+  <ion-card-header>
+    Recommended receipts
+  </ion-card-header>
+  <ion-card-content>
+    <ion-slides loop>
+      <ion-slide *ngFor="let receipt of recommendedReceipts | async" (click)="viewReceipt(receipt)" class="card-background-page">
+        <ion-card>
+          <img [src]="receipt.imageUrl" />
+          <div class="card-title">{{ receipt.title }}</div>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-card-content>
+</ion-card>

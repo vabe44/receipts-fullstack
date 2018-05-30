@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create Page</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="receiptForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input
+          type="text"
+          formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea
+          formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Image URL</ion-label>
+        <ion-input
+          type="text"
+          formControlName="imageUrl"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Category</ion-label>
+        <ion-select formControlName="category">
+          <ion-option
+            *ngFor="let key of categoryKeys" [value]="key">{{ Category[key] }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button type="submit" ion-button block [disabled]="receiptForm.invalid">Save Receipt</button>
+  </form>
+</ion-content>

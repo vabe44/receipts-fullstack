@@ -1,0 +1,17 @@
+<ion-card>
+  <img [src]="receipt.imageUrl" />
+  <ion-card-content>
+    <ion-card-title>
+      {{ receipt.title }}
+      <h3>{{ receipt.created_at | date }}</h3>
+    </ion-card-title>
+    <p>{{ receipt.description }}</p>
+    <ion-row>
+      <ion-col>
+        <ion-chip color="primary">
+          <ion-label>{{ Category[receipt.category] }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

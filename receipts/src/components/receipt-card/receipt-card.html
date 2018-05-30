@@ -1,0 +1,20 @@
+<ion-card>
+  <img [src]="receipt.imageUrl" />
+  <ion-card-content>
+    <ion-card-title>
+      {{ receipt.title }}
+    </ion-card-title>
+    <ion-row justify-content-between>
+      <ion-col col-auto>
+        <ion-chip color="primary">
+          <ion-label>{{ Category[receipt.category] }}</ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col col-3>
+        <button (click)="deleteReceipt()" ion-button clear small color="danger">
+          <div>Delete</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

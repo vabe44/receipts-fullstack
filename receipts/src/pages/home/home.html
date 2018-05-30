@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-buttons end>
+      <button (click)="createReceipt()" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Listing Page</ion-title>
+  </ion-toolbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <receipt-card
+    *ngFor="let receipt of receipts | async | search : searchText"
+    [receipt]="receipt"
+    (click)="viewReceipt(receipt)">
+  </receipt-card>
+
+</ion-content>
