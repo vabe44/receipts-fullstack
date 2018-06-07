@@ -10,6 +10,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { StoreModule } from "@ngrx/store";
+import { ROOT_REDUCER } from './../reducers/reducers';
+
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -18,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ReceiptsProvider } from '../providers/receipts/receipts';
 
 import { ReceiptCardComponent } from '../components/receipt-card/receipt-card';
+import { NgrxReceiptsProvider } from '../providers/ngrx-receipts/ngrx-receipts';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { ReceiptCardComponent } from '../components/receipt-card/receipt-card';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    StoreModule.forRoot(ROOT_REDUCER)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +56,7 @@ import { ReceiptCardComponent } from '../components/receipt-card/receipt-card';
     SplashScreen,
     ReceiptsProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NgrxReceiptsProvider,
   ]
 })
 export class AppModule {}
